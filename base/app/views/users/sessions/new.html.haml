@@ -1,0 +1,26 @@
+.container
+  .row.clearfix
+    .col-md-4.column
+    .col-md-4.column
+      .main
+        %h3
+          Please Log In, or
+          %a{:href => new_user_registration_path} Sign Up
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            %label{:for => "inputUsernameEmail"} Username or email
+            = f.email_field :email, autofocus: true, class: 'form-control', id: 'inputUsernameEmail'
+          .form-group
+            %a.pull-right{:href => new_user_password_path} Forgot password?
+            %label{:for => "inputPassword"} Password
+            = f.password_field :password, autocomplete: "off", class: 'form-control', id: 'input#inputPassword'
+
+          - if devise_mapping.rememberable?
+            .checkbox.pull-right
+              %label
+                %input{:type => "checkbox", id: 'user_remember_me', name:'user[remember_me]'}
+                Remember me
+
+          %button.btn.btn.btn-primary{:type => "submit"}
+            Log In
+    .col-md-4.column

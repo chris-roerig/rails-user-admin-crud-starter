@@ -1,0 +1,18 @@
+.container
+  .row.clearfix
+    .col-md-4.column
+    .col-md-4.column
+      .main
+        %h3
+          Log In
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            %label{:for => "inputUsernameEmail"} Username or email
+            = f.email_field :email, autofocus: true, class: 'form-control', id: 'inputUsernameEmail'
+          .form-group
+            %label{:for => "inputPassword"} Password
+            = f.password_field :password, autocomplete: "off", class: 'form-control', id: 'input#inputPassword'
+
+          %button.btn.btn.btn-primary{:type => "submit"}
+            Log In
+    .col-md-4.column
