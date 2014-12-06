@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :admins
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  devise_scope :user do 
+    get 'dashboard' => 'users/sessions#dashboard'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

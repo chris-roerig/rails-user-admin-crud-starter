@@ -56,7 +56,11 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.dom_class = 'nav navbar-nav'
 
-    primary.item :home, 'Home', root_path
+    if current_user || current_admin
+      primary.item :dashboard, 'Dashboard', dashboard_path
+    else
+      primary.item :home, 'Home', root_path
+    end
 
     # Add an item which has a sub navigation (same params, but with block)
     # primary.item :key_2, 'name', url, options do |sub_nav|
