@@ -59,7 +59,8 @@ SimpleNavigation::Configuration.run do |navigation|
     if current_admin
       primary.item :admin_dashboard, 'Admin Dashboard', rails_admin_path
     elsif current_user
-      primary.item :logout, 'Logout',  destroy_user_session_path
+      primary.item :profile, 'Profile', edit_user_registration_path
+      primary.item :logout, 'Logout', destroy_user_session_path
     else
       primary.item :login, 'Login', new_user_session_path
       primary.item :register, 'Register', new_user_registration_path
