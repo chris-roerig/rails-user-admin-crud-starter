@@ -6,7 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin_email = 'admin@demo.site'
-admin_pw    = 'qweqweqwe'
+domain      = 'demo.site'
+admin_email = "admin@#{domain}"
+user_email  = "user@#{domain}"
+demo_pw     = 12345678
 
-Admin.create!(email: admin_email, password: admin_pw) unless Admin.find_by_email(admin_email)
+admin = Admin.find_or_create_by(email: admin_email) do |admin|
+  admin.password = demo_pw
+end
+
+user = User.find_or_create_by(email: user_email) do |user|
+  user.password = demo_pw
+end
+
+puts "#{admin.email} : #{demo_pw}"
+puts "#{user.email} : #{demo_pw}"
+
