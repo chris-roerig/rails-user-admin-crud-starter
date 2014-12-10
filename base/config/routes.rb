@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions" }
   devise_for :admins
 
-  mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/manage', as: 'rails_admin'
 
   devise_scope :user do 
     get 'dashboard' => 'users/sessions#dashboard'
