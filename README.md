@@ -2,11 +2,10 @@
  
 ## Synopsis
 A quick way to bootstrap a new project containing user authentication with 
-distinct admin user types and a system management portal. Twitter Bootstrap 3 
-and Haml templating, and Simple Navigation is also built in.
+distinct admin user types and a system management portal. Twitter Bootstrap 3,
+Haml templating, and Simple Navigation is also built in.
 
 ### Tools include:
-
 
 * [RailsAdmin](https://github.com/sferik/rails_admin) - RailsAdmin is a Rails engine that provides an easy-to-use interface for managing your data.
 * [Devise](https://github.com/plataformatec/devise) - Devise is a flexible authentication solution for Rails based on Warden
